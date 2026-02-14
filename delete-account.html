@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account – Direct Jobs | حذف الحساب – دايركت جوبز</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #f57c00;
+            --orange-light: #ff9800;
+            --orange-dark: #e65100;
+            --bg: #F3F4F6;
+            --card: #ffffff;
+            --text: #1f2937;
+            --text-light: #4b5563;
+            --border: rgba(15,23,42,0.06);
+            --red: #dc2626;
+            --red-light: #fef2f2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--orange-light), var(--orange), var(--orange-dark));
+            padding: 40px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header-content { position: relative; z-index: 1; }
+
+        .header .icon-wrap {
+            width: 56px; height: 56px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 16px;
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .header .icon-wrap svg { width: 28px; height: 28px; fill: #fff; }
+
+        .header h1 {
+            color: #fff; font-size: 28px; font-weight: 900;
+            margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header .subtitle {
+            color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600;
+        }
+
+        .header .app-name {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 16px; border-radius: 20px;
+            color: #fff; font-weight: 700; font-size: 13px;
+            margin-top: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .lang-toggle {
+            display: flex; justify-content: center;
+            margin-top: -22px; position: relative; z-index: 10; gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 10px 28px; border: 2px solid var(--orange);
+            border-radius: 50px; background: var(--card);
+            color: var(--orange); font-weight: 700; font-size: 14px;
+            cursor: pointer; transition: all 0.3s ease;
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .lang-btn.active {
+            background: var(--orange); color: #fff;
+            box-shadow: 0 4px 20px rgba(245,124,0,0.35);
+        }
+
+        .lang-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+
+        .container { max-width: 780px; margin: 0 auto; padding: 30px 16px 60px; }
+
+        .section-card {
+            background: var(--card); border-radius: 18px;
+            padding: 24px; margin-bottom: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        .section-card h2 {
+            font-size: 18px; font-weight: 900;
+            color: var(--text); margin-bottom: 12px;
+        }
+
+        .section-card p {
+            font-size: 14.5px; color: var(--text-light);
+            line-height: 1.9; margin-bottom: 10px;
+        }
+
+        .section-card ul { list-style: none; padding: 0; margin: 8px 0; }
+
+        .section-card ul li {
+            font-size: 14.5px; color: var(--text-light);
+            line-height: 1.9; padding: 4px 0; padding-right: 20px; position: relative;
+        }
+
+        .section-card ul li::before {
+            content: ''; position: absolute; right: 0; top: 14px;
+            width: 8px; height: 8px; background: var(--orange); border-radius: 50%;
+        }
+
+        [dir="ltr"] .section-card ul li { padding-right: 0; padding-left: 20px; }
+        [dir="ltr"] .section-card ul li::before { right: auto; left: 0; }
+
+        .warning-card {
+            background: var(--red-light);
+            border: 1px solid rgba(220,38,38,0.15);
+        }
+
+        .warning-card h2 { color: var(--red); }
+
+        .step-number {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--orange-light), var(--orange));
+            color: #fff; border-radius: 10px;
+            font-weight: 800; font-size: 14px; margin-bottom: 8px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--orange-light), var(--orange));
+            color: #fff; text-align: center; padding: 30px 24px;
+        }
+
+        .contact-card h2 { color: #fff; }
+        .contact-card p { color: rgba(255,255,255,0.9); }
+
+        .contact-email {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 24px; border-radius: 50px;
+            color: #fff; font-weight: 700; font-size: 15px;
+            text-decoration: none; margin-top: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            direction: ltr; transition: background 0.3s ease;
+        }
+
+        .contact-email:hover { background: rgba(255,255,255,0.3); }
+
+        .footer {
+            text-align: center; padding: 24px 16px;
+            color: #9ca3af; font-size: 12px; font-weight: 600;
+        }
+
+        .hidden { display: none; }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 22px; }
+            .section-card { padding: 18px; }
+            .container { padding: 24px 12px 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <div class="icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
+            </div>
+            <h1 id="headerTitle">حذف الحساب</h1>
+            <div class="subtitle" id="headerSubtitle">طلب حذف حسابك وبياناتك</div>
+            <div class="app-name">Direct Jobs – دايركت جوبز</div>
+        </div>
+    </div>
+
+    <div class="lang-toggle">
+        <button class="lang-btn active" id="btnAr" onclick="switchLang('ar')">العربية</button>
+        <button class="lang-btn" id="btnEn" onclick="switchLang('en')">English</button>
+    </div>
+
+    <!-- Arabic Content -->
+    <div class="container" id="content-ar">
+
+        <div class="section-card">
+            <h2>كيفية حذف حسابك</h2>
+            <p>يمكنك طلب حذف حسابك وجميع البيانات المرتبطة به من خلال الطرق التالية:</p>
+        </div>
+
+        <div class="section-card">
+            <div class="step-number">1</div>
+            <h2>الحذف من داخل التطبيق</h2>
+            <ul>
+                <li>افتح تطبيق Direct Jobs</li>
+                <li>اذهب إلى صفحة الملف الشخصي (Profile)</li>
+                <li>اضغط على "حذف الحساب"</li>
+                <li>أكّد طلب الحذف</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <div class="step-number">2</div>
+            <h2>الحذف عبر البريد الإلكتروني</h2>
+            <p>يمكنك إرسال طلب حذف الحساب إلى بريدنا الإلكتروني مع ذكر عنوان البريد الإلكتروني المسجل في التطبيق:</p>
+            <p style="direction: ltr; text-align: left;"><strong>Directcomjobs@gmail.com</strong></p>
+        </div>
+
+        <div class="section-card">
+            <div class="step-number">3</div>
+            <h2>البيانات التي سيتم حذفها</h2>
+            <p>عند حذف حسابك، سيتم حذف جميع البيانات التالية نهائيًا:</p>
+            <ul>
+                <li>معلومات الحساب (الاسم، البريد الإلكتروني، كلمة المرور)</li>
+                <li>المعلومات المهنية وإعلانات الوظائف</li>
+                <li>سجل المدفوعات والمعاملات</li>
+                <li>جميع البيانات المرتبطة بحسابك</li>
+            </ul>
+        </div>
+
+        <div class="section-card warning-card">
+            <h2>⚠️ تنبيه مهم</h2>
+            <ul>
+                <li>عملية الحذف نهائية ولا يمكن التراجع عنها</li>
+                <li>سيتم حذف جميع إعلاناتك المنشورة</li>
+                <li>قد يستغرق الحذف الكامل حتى 30 يومًا</li>
+                <li>لن تتمكن من استرجاع أي بيانات بعد الحذف</li>
+            </ul>
+        </div>
+
+        <div class="section-card contact-card">
+            <h2>تحتاج مساعدة؟</h2>
+            <p>إذا واجهت أي مشكلة في حذف حسابك، تواصل معنا:</p>
+            <a href="mailto:Directcomjobs@gmail.com" class="contact-email">Directcomjobs@gmail.com</a>
+        </div>
+    </div>
+
+    <!-- English Content -->
+    <div class="container hidden" id="content-en" dir="ltr" style="direction: ltr; text-align: left;">
+
+        <div class="section-card">
+            <h2>How to Delete Your Account</h2>
+            <p>You can request the deletion of your account and all associated data through the following methods:</p>
+        </div>
+
+        <div class="section-card">
+            <div class="step-number">1</div>
+            <h2>Delete from Within the App</h2>
+            <ul>
+                <li>Open the Direct Jobs app</li>
+                <li>Go to your Profile page</li>
+                <li>Tap "Delete Account"</li>
+                <li>Confirm the deletion request</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <div class="step-number">2</div>
+            <h2>Delete via Email</h2>
+            <p>You can send an account deletion request to our email, including the email address registered in the app:</p>
+            <p><strong>Directcomjobs@gmail.com</strong></p>
+        </div>
+
+        <div class="section-card">
+            <div class="step-number">3</div>
+            <h2>Data That Will Be Deleted</h2>
+            <p>When your account is deleted, the following data will be permanently removed:</p>
+            <ul>
+                <li>Account information (name, email, password)</li>
+                <li>Professional information and job listings</li>
+                <li>Payment and transaction history</li>
+                <li>All data associated with your account</li>
+            </ul>
+        </div>
+
+        <div class="section-card warning-card">
+            <h2>⚠️ Important Notice</h2>
+            <ul>
+                <li>Account deletion is permanent and cannot be undone</li>
+                <li>All your published listings will be removed</li>
+                <li>Complete deletion may take up to 30 days</li>
+                <li>You will not be able to recover any data after deletion</li>
+            </ul>
+        </div>
+
+        <div class="section-card contact-card">
+            <h2>Need Help?</h2>
+            <p>If you encounter any issues deleting your account, contact us:</p>
+            <a href="mailto:Directcomjobs@gmail.com" class="contact-email">Directcomjobs@gmail.com</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Direct Jobs – دايركت جوبز. All Rights Reserved.
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            const arContent = document.getElementById('content-ar');
+            const enContent = document.getElementById('content-en');
+            const btnAr = document.getElementById('btnAr');
+            const btnEn = document.getElementById('btnEn');
+            const headerTitle = document.getElementById('headerTitle');
+            const headerSubtitle = document.getElementById('headerSubtitle');
+
+            if (lang === 'en') {
+                arContent.classList.add('hidden');
+                enContent.classList.remove('hidden');
+                btnAr.classList.remove('active');
+                btnEn.classList.add('active');
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+                headerTitle.textContent = 'Delete Account';
+                headerSubtitle.textContent = 'Request account and data deletion';
+            } else {
+                enContent.classList.add('hidden');
+                arContent.classList.remove('hidden');
+                btnEn.classList.remove('active');
+                btnAr.classList.add('active');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+                headerTitle.textContent = 'حذف الحساب';
+                headerSubtitle.textContent = 'طلب حذف حسابك وبياناتك';
+            }
+        }
+    </script>
+</body>
+</html>
